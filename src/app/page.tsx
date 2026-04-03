@@ -80,14 +80,6 @@ function LazyLegacyFooter() {
   return <Comp />;
 }
 
-function LazyGameAccessButton() {
-  const Comp = useLazyComponent(
-    useCallback(() => import('@/components/portfolio/GameAccessButton'), []),
-    5000
-  );
-  if (!Comp) return null;
-  return <Comp visible={true} />;
-}
 
 // ─── Navigation Label Component ───────────────────────────────────────
 function NavLabel({ label, active }: { label: string; active: boolean }) {
@@ -202,8 +194,6 @@ export default function Home() {
       {/* ── Side Navigation ── */}
       <SideNav />
 
-      {/* ── Lazy Game Button ── */}
-      <LazyGameAccessButton />
 
       {/* ── Foreground Content ── */}
       <div ref={mainRef} className="min-h-screen flex flex-col relative z-10">
