@@ -220,17 +220,9 @@ function ModelViewer({
           gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
           style={{ background: 'transparent' }}
         >
-          <ambientLight intensity={id === 'hopper' ? 1.0 : 6.0} />
+          <ambientLight intensity={id === 'hopper' ? 1.0 : 4.4} />
           <directionalLight position={[5, 8, 5]} intensity={id === 'hopper' ? 3.0 : 12.0} color="#ffffff" />
           <directionalLight position={[-4, 6, 3]} intensity={id === 'hopper' ? 2.0 : 8.0} color="#ffffff" />
-          {id !== 'hopper' && (
-            <>
-              <directionalLight position={[0, -3, 6]} intensity={8.0} color="#ffffff" />
-              <directionalLight position={[-5, 2, -4]} intensity={6.0} color="#ffffff" />
-              <directionalLight position={[4, 3, -5]} intensity={5.0} color="#ffffff" />
-              <pointLight position={[0, 0, 3]} intensity={15.0} color="#ffffff" decay={2} distance={10} />
-            </>
-          )}
           <ModelScene modelPath={modelPath} subsystemId={id} />
         </Canvas>
       </Suspense>
