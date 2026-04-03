@@ -78,7 +78,7 @@ export default function LegacyFooter() {
           >
             No.2 High School of East China Normal University&nbsp;&nbsp;|&nbsp;&nbsp;EFZ Robotics
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="https://efz-robotics-2026.lol"
               target="_blank"
@@ -96,6 +96,15 @@ export default function LegacyFooter() {
               style={{ color: '#6b6b7b' }}
             >
               www.hsefz.cn
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1Dv6Pt0MUIhhHstdwtl_U03aCO_8JzTXr/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-mono text-xs tracking-[0.25em] uppercase px-4 py-2 border border-[rgba(45,255,123,0.3)] transition-all duration-300 hover:border-[#2dff7b] hover:text-[#2dff7b] hover:scale-110 hover:shadow-[0_0_20px_rgba(45,255,123,0.2)]"
+              style={{ color: '#6b6b7b' }}
+            >
+              Impact Award Video
             </a>
           </div>
         </motion.div>
