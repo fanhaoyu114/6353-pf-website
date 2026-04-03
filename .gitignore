@@ -52,6 +52,9 @@ server.log
 upload/
 
 # Skills directory
-/skills/*.glb
+/skills/
 *.stp
 *.zip
+
+# GLB models are tracked individually (under 100MB GitHub limit)
+# *.glb
