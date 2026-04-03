@@ -84,12 +84,12 @@ function ModelScene({ modelPath, subsystemId }: { modelPath: string; subsystemId
             side: THREE.DoubleSide,
           });
         } else {
-          // Dark metallic finish for all other subsystems
+          // Metallic finish for all other subsystems
           child.material = new THREE.MeshStandardMaterial({
-            color: 0x1a1a1a,
-            roughness: 0.12,
-            metalness: 0.95,
-            envMapIntensity: 3.0,
+            color: 0x555555,
+            roughness: 0.25,
+            metalness: 0.8,
+            envMapIntensity: 5.0,
             side: THREE.DoubleSide,
           });
         }
@@ -220,9 +220,9 @@ function ModelViewer({
           gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
           style={{ background: 'transparent' }}
         >
-          <ambientLight intensity={id === 'hopper' ? 1.0 : 2.2} />
-          <directionalLight position={[5, 8, 5]} intensity={id === 'hopper' ? 3.0 : 6.0} color="#ffffff" />
-          <directionalLight position={[-4, 6, 3]} intensity={id === 'hopper' ? 2.0 : 4.0} color="#ffffff" />
+          <ambientLight intensity={id === 'hopper' ? 1.0 : 5.0} />
+          <directionalLight position={[5, 8, 5]} intensity={id === 'hopper' ? 3.0 : 14.0} color="#ffffff" />
+          <directionalLight position={[-4, 6, 3]} intensity={id === 'hopper' ? 2.0 : 9.0} color="#ffffff" />
           <ModelScene modelPath={modelPath} subsystemId={id} />
         </Canvas>
       </Suspense>
