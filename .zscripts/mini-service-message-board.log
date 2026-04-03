@@ -1,0 +1,35 @@
+[message-board] Installing dependencies...
+bun install v1.3.10 (30e609e0)
+
++ @types/bun@1.3.11
++ socket.io@4.8.3
+
+24 packages installed [237.00ms]
+[message-board] Ru$ bun --hot index.ts
+[MSG] Message board service running on port 3003
+[MSG] Client connected: 9UIrbHOdwDLfFOS-AAAB
+[MSG] Client connected: BZGL0agvnvHqVhBCAAAD
+[MSG] Client connected: Ebp-vq8E2EJU4NkwAAAF
+[MSG] Client disconnected: BZGL0agvnvHqVhBCAAAD
+[MSG] Client connected: hgE0sPpw692ixa1IAAAH
+[MSG] Clerror: script "dev" was terminated by signal SIGTERM (Polite quit request)
+2EJU4NkwAAAF
+[MSG] Client disconnected: hgE0sPpw692ixa1IAAAH
+[MSG] Client connected: 0EAjR2LCdTEsRf8MAAAJ
+[MSG] Client connected: Mk-1MVwlX0db4b9gAAAL
+[MSG] New from anon: 6353牛逼
+[MSG] Client disconnected: 0EAjR2LCdTEsRf8MAAAJ
+[MSG] Client disconnected: Mk-1MVwlX0db4b9gAAAL
+[MSG] Client connected: _9Sk3QEa3Jkr6O-0AAAN
+[MSG] Client disconnected: _9Sk3QEa3Jkr6O-0AAAN
+[MSG] Client connected: w10MrHlyUoSLWfE4AAAP
+[MSG] Client connected: JiKNP0xq6TEWysf9AAAR
+[MSG] Client disconnected: JiKNP0xq6TEWysf9AAAR
+[MSG] Client disconnected: w10MrHlyUoSLWfE4AAAP
+[MSG] Client connected: kaXyws2pf_rJxUWjAAAT
+[MSG] Client disconnected: kaXyws2pf_rJxUWjAAAT
+[MSG] Client connected: 2-w4kmYDoLrvqFF0AAAV
+[MSG] Client disconnected: 2-w4kmYDoLrvqFF0AAAV
+[MSG] Client connected: GRbvewwDe2SXMOktAAAX
+[MSG] Client disconnected: GRbvewwDe2SXMOktAAAX
+error: script "dev" was terminated by signal SIGTERM (Polite quit request)

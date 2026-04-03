@@ -1,0 +1,2 @@
+$ bun --hot index.ts
+[MSG] Message board service running on port 3003
