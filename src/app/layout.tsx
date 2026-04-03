@@ -40,65 +40,67 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
 (function() {
-  var el = document.getElementById('__preloader');
-  if (!el) return;
+  function boot() {
+    var el = document.getElementById('__preloader');
+    if (!el) return;
 
-  window.__LOAD = { progress: 0, done: false };
-  var total = 1, loaded = 0;
-  var pctEl = document.getElementById('__load-pct');
-  var barEl = document.getElementById('__load-bar');
-  var barBottom = document.getElementById('__load-bar-bottom');
+    window.__LOAD = { progress: 0, done: false };
+    var total = 1, loaded = 0;
+    var pctEl = document.getElementById('__load-pct');
+    var barEl = document.getElementById('__load-bar');
+    var barBottom = document.getElementById('__load-bar-bottom');
 
-  function calc() {
-    var p = total > 0 ? Math.min(98, Math.round((loaded / total) * 100)) : 0;
-    window.__LOAD.progress = p;
-    if (pctEl) pctEl.textContent = p;
-    if (barEl) barEl.style.width = p + '%';
-    if (barBottom) barBottom.style.width = p + '%';
-  }
+    function calc() {
+      var p = total > 0 ? Math.min(98, Math.round((loaded / total) * 100)) : 0;
+      window.__LOAD.progress = p;
+      if (pctEl) pctEl.textContent = p;
+      if (barEl) barEl.style.width = p + '%';
+      if (barBottom) barBottom.style.width = p + '%';
+    }
 
-  var perf = performance.getEntriesByType('resource');
-  loaded = perf.length;
-  total = Math.max(1, loaded + 8);
-  calc();
+    var perf = performance.getEntriesByType('resource');
+    loaded = perf.length;
+    total = Math.max(1, loaded + 8);
+    calc();
 
-  if (window.PerformanceObserver) {
-    try {
-      var obs = new PerformanceObserver(function(list) {
-        loaded += list.getEntries().length;
-        calc();
-      });
-      obs.observe({ entryTypes: ['resource'] });
-    } catch(e) {}
+    if (window.PerformanceObserver) {
+      try {
+        var obs = new PerformanceObserver(function(list) {
+          loaded += list.getEntries().length;
+          calc();
+        });
+        obs.observe({ entryTypes: ['resource'] });
+      } catch(e) {}
+    }
+
+    loaded += 3; calc();
+
+    function finish() {
+      if (window.__LOAD.done) return;
+      window.__LOAD.progress = 100;
+      window.__LOAD.done = true;
+      if (pctEl) pctEl.textContent = '100';
+      if (barEl) barEl.style.width = '100%';
+      if (barBottom) barBottom.style.width = '100%';
+      setTimeout(function() {
+        el.style.transition = 'opacity 0.6s ease';
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+        setTimeout(function() {
+          el.style.display = 'none';
+        }, 700);
+      }, 300);
+    }
+
+    window.addEventListener('load', finish);
+    setTimeout(finish, 6000);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { loaded += 3; calc(); });
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    loaded += 3; calc();
+    boot();
   }
-
-  function finish() {
-    if (window.__LOAD.done) return;
-    window.__LOAD.progress = 100;
-    window.__LOAD.done = true;
-    if (pctEl) pctEl.textContent = '100';
-    if (barEl) barEl.style.width = '100%';
-    if (barBottom) barBottom.style.width = '100%';
-    // Fade out and remove entirely via DOM — no React dependency
-    setTimeout(function() {
-      el.style.transition = 'opacity 0.6s ease';
-      el.style.opacity = '0';
-      el.style.pointerEvents = 'none';
-      setTimeout(function() {
-        el.style.display = 'none';
-      }, 700);
-    }, 300);
-  }
-
-  window.addEventListener('load', finish);
-  // Hard fallback
-  setTimeout(finish, 6000);
 })();
             `,
           }}
