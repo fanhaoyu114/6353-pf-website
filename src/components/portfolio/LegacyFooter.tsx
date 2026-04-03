@@ -98,7 +98,7 @@ export default function LegacyFooter() {
               www.hsefz.cn
             </a>
             <a
-              href="https://drive.google.com/file/d/1Dv6Pt0MUIhhHstdwtl_U03aCO_8JzTXr/view?usp=drive_link"
+              href="https://www.youtube.com/channel/UCBRzbFFF0ey3qsNkbrKFBYA/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-mono text-xs tracking-[0.25em] uppercase px-4 py-2 border border-[rgba(45,255,123,0.3)] transition-all duration-300 hover:border-[#2dff7b] hover:text-[#2dff7b] hover:scale-110 hover:shadow-[0_0_20px_rgba(45,255,123,0.2)]"
