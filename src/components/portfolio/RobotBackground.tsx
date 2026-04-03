@@ -76,8 +76,8 @@ export default function RobotBackground({ onModelLoaded }: { onModelLoaded?: () 
         }}
         style={{ background: 'transparent' }}
       >
-        <directionalLight position={[3, 6, 4]} intensity={9.0} color="#ffffff" />
-        <ambientLight intensity={3.2} />
+        <directionalLight position={[3, 6, 4]} intensity={4.0} color="#ffffff" />
+        <ambientLight intensity={1.4} />
 
         <Suspense fallback={null}>
           <RobotModel url="/models/6353-robot.glb" onLoaded={() => onModelLoadedRef.current?.()} />
