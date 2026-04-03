@@ -84,11 +84,11 @@ function ModelScene({ modelPath, subsystemId }: { modelPath: string; subsystemId
             side: THREE.DoubleSide,
           });
         } else {
-          // Dark metallic finish for all other subsystems
+          // Metallic finish for all other subsystems
           child.material = new THREE.MeshStandardMaterial({
-            color: 0x1a1a1a,
-            roughness: 0.12,
-            metalness: 0.95,
+            color: 0x888888,
+            roughness: 0.35,
+            metalness: 0.4,
             envMapIntensity: 3.0,
             side: THREE.DoubleSide,
           });
